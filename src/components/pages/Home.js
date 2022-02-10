@@ -20,16 +20,15 @@ class Home extends React.Component {
       const user = JSON.parse(localStorage.getItem('user-info'))
       const token = user.token
       console.log(token)
-      let bearer = "Bearer " + token;
+      let auth = "Bearer " + token;
       var requestOptions = {
         method: 'GET',
-        withCredentials: true,
-        credentials: 'include',
-        headers: {
-            'Authorization': bearer,
-            'X-FP-API-KEY': 'iphone', //it can be iPhone or your any other attribute
-            'Content-Type': 'application/json'
-        },
+            headers: {
+                'Authorization': auth,
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "http://localhost:3000",
+                'Access-Control-Allow-Credentials': 'true'
+            },
       }
       fetch('https://bookhotel-backend.herokuapp.com/api/manager/users/1/hotels', requestOptions)
       .then(function(response) {
