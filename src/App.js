@@ -3,9 +3,10 @@ import Navbar from './components/Navbar';
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import Home from './components/pages/Home';
 import Services from './components/pages/Services';
-import Products from './components/pages/Products';
-import SignUp from './components/pages/SignUp';
+import RoomList from './components/pages/RoomList';
+import LoginForm from './components/pages/LoginForm'
 import Room1 from './components/pages/Room1';
+import RHome from './components/pages/RHome';
 
 function App() {
   return (
@@ -13,11 +14,12 @@ function App() {
       <BrowserRouter>
       <Navbar />
         <Routes>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/products' element={<Products />} />
-          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/' element={<RHome />} />
+          <Route path='/Services' element={<Services />} />
+          <Route path='/RoomList' element={<RoomList />} />
+          <Route path='/Login' element={<LoginForm />} />
           <Route path='/room1' element={<Room1 />} />
+          <Route path='/home' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </div>

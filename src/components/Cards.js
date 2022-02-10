@@ -27,18 +27,6 @@ function Cards() {
               label='Hired'
               path='/services'
             />
-            <CardItem
-              src='images/img-2.jpg'
-              text='Room 4'
-              label='Hired'
-              path='/services'
-            />
-            <CardItem
-              src='images/img-2.jpg'
-              text='Room 5'
-              label='Hired'
-              path='/services'
-            />
           </ul>
           <ul className='cards__items'>
             <CardItem
@@ -59,18 +47,6 @@ function Cards() {
               label='Luxury'
               path='/services'
             />
-            <CardItem
-              src='images/img-2.jpg'
-              text='Room 9'
-              label='Luxury'
-              path='/services'
-            />
-            <CardItem
-              src='images/img-2.jpg'
-              text='Room 10'
-              label='Luxury'
-              path='/services'
-            />
           </ul>
           <ul className='cards__items'>
             <CardItem
@@ -88,18 +64,6 @@ function Cards() {
             <CardItem
               src='images/img-2.jpg'
               text='Room 13'
-              label='Luxury'
-              path='/services'
-            />
-            <CardItem
-              src='images/img-2.jpg'
-              text='Room 14'
-              label='Luxury'
-              path='/services'
-            />
-            <CardItem
-              src='images/img-2.jpg'
-              text='Room 15'
               label='Luxury'
               path='/services'
             />
