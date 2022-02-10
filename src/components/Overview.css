@@ -23,15 +23,15 @@
     text-align: center;
 }
 
-.contact .content h2 {
-    font-size: 36px;
+.contact .content h1 {
+    font-size: 50px;
     font-weight: 500;
-    color: #00bcd4;
+    color: #18b892;
 }
 
 .contact .content p {
     font-weight: 300;
-    color: #00bcd4;
+    color: #18b892;
 }
 
 .container {
@@ -76,7 +76,7 @@
 
 .container .contactInfo .box .text h3 {
     font-weight: 500;
-    color: #00bcd4;
+    color: #18b892;
 }
 
 .contactform {

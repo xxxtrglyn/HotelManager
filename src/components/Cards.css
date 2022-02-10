@@ -1,6 +1,5 @@
 .cards {
   padding: 4rem;
-  background: #fff;
 }
 
 h1 {
@@ -12,7 +11,7 @@ h1 {
   flex-flow: column;
   align-items: center;
   max-width: 1120px;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -62,7 +61,7 @@ h1 {
   bottom: 0;
   margin-left: 10px;
   padding: 6px 8px;
-  max-width: calc((100%) - 60px);
+  max-width: calc((100%));
   font-size: 12px;
   font-weight: 700;
   color: #fff;
@@ -95,8 +94,8 @@ h1 {
 
 .cards__item__text {
   color: #252e48;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 50px;
+  line-height: 20px;
 }
 
 @media only screen and (min-width: 1200px) {

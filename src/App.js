@@ -6,6 +6,7 @@ import Services from './components/pages/Services';
 import RoomList from './components/pages/RoomList';
 import LoginForm from './components/pages/LoginForm'
 import Room1 from './components/pages/Room1';
+import Room2 from './components/pages/Room2';
 import RHome from './components/pages/RHome';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/RoomList' element={<RoomList />} />
           <Route path='/Login' element={<LoginForm />} />
           <Route path='/room1' element={<Room1 />} />
+          <Route path='/room2' element={<Room2 />} />
           <Route path='/home' element={<Home />} />
         </Routes>
       </BrowserRouter>

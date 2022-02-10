@@ -7,8 +7,7 @@ class Home extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-          response: [],
-          name: ""
+          response: {}
       }
     }
   
@@ -19,24 +18,24 @@ class Home extends React.Component {
     loadCategory = () => {
       const user = JSON.parse(localStorage.getItem('user-info'))
       const token = user.token
-      console.log(token)
+      
       let auth = "Bearer " + token;
       var requestOptions = {
         method: 'GET',
-            headers: {
-                'Authorization': auth,
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "http://localhost:3000",
-                'Access-Control-Allow-Credentials': 'true'
-            },
+        headers: {
+            'Authorization': auth,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
       }
-      fetch('https://bookhotel-backend.herokuapp.com/api/manager/users/1/hotels', requestOptions)
+      fetch(`https://bookhotel-backend.herokuapp.com/api/manager/users/${user.id}/hotel`, requestOptions)
       .then(function(response) {
           return response.json()
       })
-      .then((hotels) => {
-          this.setState({response: hotels[0].rooms,  name: hotels[0].hotel_name, address: hotels[0].address})
+      .then((hotel) => {
+          this.setState({response: {name:hotel[0].hotel_name, address:hotel[0].address, phone:hotel[0].phone, rate:hotel[0].rate, image:hotel[0].image}})
           console.log(this.state.response);
+          console.log(this.state.response)
       })
       .catch(function(err) {
           console.log(err)
@@ -50,10 +49,47 @@ class Home extends React.Component {
   
   render () {
     return (
-
-          <div className="content">
-            <h1>{this.state.name}</h1>
-            <Overview data={this.state.response} />
+          <div>
+            <section className="contact">
+                <div className="content">
+                <h1>{this.state.response.name}</h1>
+                </div>
+                <div className="container">
+                    <div className="contactInfo">
+                        <div className="box">
+                            <div className="icon">
+                              <i className="fa fa-map-marker" aria-hidden="true"></i>
+                            </div>
+                            <div className="text">
+                                <h3> Address </h3>
+                                <p>{this.state.response.address}</p>
+                            </div>
+                        </div>
+                        <div className="box">
+                          <div className="icon">
+                            <i className="fa fa-phone" aria-hidden="true"></i>
+                          </div>
+                          <div className="text">
+                              <h3> Phone </h3>
+                              <p>{this.state.response.phone}</p>
+                          </div>
+                      </div>
+                        <div className="box">
+                          <div className="icon">
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                          </div>
+                          <div className="text">
+                              <h3> Rate </h3>
+                              <h2>{this.state.response.rate}<i class="fa fa-star" aria-hidden="true"></i></h2>
+                              
+                          </div>
+                      </div>
+                    </div>
+                  <div className="contactform">
+                    <Image source={this.state.response.image} />
+                  </div>
+                </div>
+              </section>
           </div>
 
     )
@@ -67,51 +103,5 @@ function Image(props) {
   )
 }
 
-function Overview(props) {
-  return(
-      <div>
-          {props.data.map((item) => {
-            return(
-              <section className="contact">
-                <div className="container">
-                    <div className="contactInfo">
-                        <div className="box">
-                            <div className="icon">
-                              <i className="fa fa-map-marker" aria-hidden="true"></i>
-                            </div>
-                            <div className="text">
-                                <h3> Address </h3>
-                                <p>{item.address}</p>
-                            </div>
-                        </div>
-                        <div className="box">
-                          <div className="icon">
-                            <i className="fa fa-phone" aria-hidden="true"></i>
-                          </div>
-                          <div className="text">
-                              <h3> Phone </h3>
-                              <p>{item.phone}</p>
-                          </div>
-                      </div>
-                        <div className="box">
-                          <div className="icon">
-                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                          </div>
-                          <div className="text">
-                              <h3> {item.rate} </h3>
-                              <p>xxxtrglyn@gmail.com</p>
-                          </div>
-                      </div>
-                    </div>
-                  <div className="contactform">
-                    <Image source={item.roomImages[0].image} />
-                  </div>
-                </div>
-              </section>
-            )
-            })}
-      </div>
-  ) 
-}
 
 export default Home;

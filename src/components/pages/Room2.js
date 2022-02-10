@@ -24,7 +24,7 @@ export default function Room1() {
             "roomname": roomname
         }
         let auth = "Bearer " + token;
-        let result = await fetch("https://bookhotel-backend.herokuapp.com/api/manager/rooms/0", {
+        let result = await fetch("https://bookhotel-backend.herokuapp.com/api/manager/rooms/1", {
             method: 'PUT',
             headers: {
                 'Authorization': auth,
@@ -69,7 +69,7 @@ export default function Room1() {
                 </div>
                 <div>
                     <label className='register-label'>ID</label>
-                    <input type="text" name="" placeholder="ID" defaultValue={27} onChange={(e) => {
+                    <input type="text" name="" placeholder="ID" defaultValue={33} onChange={(e) => {
                         
                             setAddress(e.target.value)
                     }}/>
