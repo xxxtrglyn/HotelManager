@@ -33,9 +33,10 @@ class Home extends React.Component {
           return response.json()
       })
       .then((hotel) => {
-          this.setState({response: {name:hotel[0].hotel_name, address:hotel[0].address, phone:hotel[0].phone, rate:hotel[0].rate, image:hotel[0].image}})
+          console.log(hotel)
+          this.setState({response: {id: hotel[0].id, name:hotel[0].hotel_name, address:hotel[0].address, phone:hotel[0].phone, rate:hotel[0].rate, image:hotel[0].image}})
           console.log(this.state.response);
-          console.log(this.state.response)
+          localStorage.setItem("hotelid", hotel[0].id)
       })
       .catch(function(err) {
           console.log(err)
